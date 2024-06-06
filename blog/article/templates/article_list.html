@@ -1,0 +1,7 @@
+<h2><a href="{% url 'add_article' %}">Ajouter un article</a></h2>
+
+{% for article in articles %}
+<div>
+    <h4><a href="{% url 'article' article.id %}">{{article.name}}</a></h4>
+</div>
+{% endfor %}

@@ -1,0 +1,12 @@
+<div>
+    <h4>{{article.name}}</h4>
+    <div>
+        <p>{{ article.description }}</p>
+        <div>
+            <small>{{ article.author }}</small>
+            <small> {{ article.category }} </small>
+        </div>
+    </div>
+    <p><a href="{% url 'article_update' article.id %}">Update this article</a></p>
+    <p><a href="{% url 'article_delete' article.id %}">Delete this article</a></p>
+</div>
