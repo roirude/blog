@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404
 from django.contrib.auth.models import User
 
 from article.models import Article
@@ -6,9 +6,10 @@ from article.forms import ArticleForm
 
 
 def list_article(request):
-    articles = Article.objects.all()
+    articles = get_list_or_404(Article)
     
     return render(request,"article_list.html",context={'articles':articles})
+
     
     
 def add_article(request):
@@ -45,3 +46,5 @@ def article_delete(request, id):
     article = Article.objects.get(id=id)
     article.delete()
     return redirect('list_article')
+
+    
